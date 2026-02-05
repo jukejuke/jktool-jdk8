@@ -13,6 +13,12 @@ public class ProxyDnsResolver {
     /**
      * 使用dnsjava通过代理进行DNS查询 （验证代理，目前未调通），通过dns tcp去解析域名
      * socks代理
+     * @param domain 要解析的域名
+     * @param dnsIp DNS服务器IP地址
+     * @param proxyHost 代理服务器主机名
+     * @param proxyPort 代理服务器端口
+     * @return 解析得到的IP地址列表
+     * @throws Exception 解析过程中发生错误时抛出
      */
     public static List<String> resolveViaDnsJava(String domain, String dnsIp,String proxyHost, int proxyPort) throws Exception {
         List<String> ipList = new ArrayList<>();

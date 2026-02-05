@@ -14,6 +14,7 @@ public class DoHWithHttpProxy {
      * 使用HTTP代理进行DNS-over-HTTPS查询
      * @param proxyHost 代理服务器主机名
      * @param proxyPort 代理服务器端口
+     * @param type 代理类型
      * @param dohHost DNS-over-HTTPS服务主机名
      * @param domain 要查询的域名
      * @param recordType DNS记录类型 (如"A", "AAAA")

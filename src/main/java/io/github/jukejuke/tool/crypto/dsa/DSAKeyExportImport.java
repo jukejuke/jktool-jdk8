@@ -12,6 +12,8 @@ public class DSAKeyExportImport {
 
     /**
      * 导出公钥为 Base64 字符串
+     * @param publicKey 公钥对象
+     * @return 公钥的 Base64 编码字符串
      */
     public static String exportPublicKey(PublicKey publicKey) {
         byte[] keyBytes = publicKey.getEncoded();
@@ -20,6 +22,8 @@ public class DSAKeyExportImport {
 
     /**
      * 导出私钥为 Base64 字符串
+     * @param privateKey 私钥对象
+     * @return 私钥的 Base64 编码字符串
      */
     public static String exportPrivateKey(PrivateKey privateKey) {
         byte[] keyBytes = privateKey.getEncoded();
@@ -28,6 +32,9 @@ public class DSAKeyExportImport {
 
     /**
      * 从 Base64 字符串导入公钥 (X.509 格式)
+     * @param base64Key 公钥的 Base64 编码字符串
+     * @return 导入的公钥对象
+     * @throws Exception 导入过程中发生错误时抛出
      */
     public static PublicKey importPublicKey(String base64Key) throws Exception {
         byte[] keyBytes = Base64.getDecoder().decode(base64Key);
@@ -38,6 +45,9 @@ public class DSAKeyExportImport {
 
     /**
      * 从 Base64 字符串导入私钥 (PKCS#8 格式)
+     * @param base64Key 私钥的 Base64 编码字符串
+     * @return 导入的私钥对象
+     * @throws Exception 导入过程中发生错误时抛出
      */
     public static PrivateKey importPrivateKey(String base64Key) throws Exception {
         byte[] keyBytes = Base64.getDecoder().decode(base64Key);
@@ -48,6 +58,10 @@ public class DSAKeyExportImport {
 
     /**
      * 导出密钥对到文件
+     * @param keyPair 密钥对对象
+     * @param publicKeyFile 公钥文件路径
+     * @param privateKeyFile 私钥文件路径
+     * @throws Exception 导出过程中发生错误时抛出
      */
     public static void exportKeyPairToFiles(KeyPair keyPair, String publicKeyFile,
                                             String privateKeyFile) throws Exception {
@@ -73,6 +87,10 @@ public class DSAKeyExportImport {
 
     /**
      * 从文件导入密钥对
+     * @param publicKeyFile 公钥文件路径
+     * @param privateKeyFile 私钥文件路径
+     * @return 导入的密钥对对象
+     * @throws Exception 导入过程中发生错误时抛出
      */
     public static KeyPair importKeyPairFromFiles(String publicKeyFile,
                                                  String privateKeyFile) throws Exception {
