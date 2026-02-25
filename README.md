@@ -52,6 +52,15 @@ JK Tool 是一个基于 Java 的工具库，主要用于通过高德地图（Ama
 - **进程管理**：通过 `ProcessManager`、`ProcessManagerFactory`、`WindowExeProcessManager` 和 `LinuxExeProcessManager` 类实现，支持跨平台的进程启动、查询和管理功能。
 - **日志工具**：通过 `LogUtil` 类实现，提供简洁的日志记录功能。
 
+### 邮件工具
+- **邮件发送**：通过 `MailUtils` 类实现，支持发送邮件功能。
+- **邮件读取**：通过 `MailReaderUtils` 类实现，支持读取邮件功能。
+- **邮件删除**：通过 `MailDeleterUtils` 类实现，支持删除邮件功能。
+
+### 七牛云工具
+- **七牛云配置**：通过 `QiniuConfig` 类实现，支持七牛云配置管理。
+- **七牛云工具**：通过 `QiniuUtils` 类实现，支持七牛云存储操作。
+
 ### 许可证管理
 - **硬件信息获取**：通过 `HardwareUtils` 类实现，支持获取计算机硬件标识信息。
 - **许可证生成**：通过 `LicenseUtils` 类实现，支持生成基于硬件信息的软件许可证。
@@ -196,6 +205,15 @@ public void batchConvertCoordinates(List<CoordinateConverter.Point> wgs84Points)
 - `src/main/java/io/github/jukejuke/tool/freemarker/FreemarkerUtils.java`：Freemarker模板引擎工具类。
 - `src/main/java/io/github/jukejuke/tool/jwt/JwtUtils.java`：JWT令牌处理工具类。
 
+### 邮件工具
+- `src/main/java/io/github/jukejuke/tool/mail/MailUtils.java`：邮件发送工具类。
+- `src/main/java/io/github/jukejuke/tool/mail/MailReaderUtils.java`：邮件读取工具类。
+- `src/main/java/io/github/jukejuke/tool/mail/MailDeleterUtils.java`：邮件删除工具类。
+
+### 七牛云工具
+- `src/main/java/io/github/jukejuke/qiniu/QiniuConfig.java`：七牛云配置管理类。
+- `src/main/java/io/github/jukejuke/qiniu/QiniuUtils.java`：七牛云存储操作工具类。
+
 ### Maven
 在项目的pom.xml的dependencies中加入以下内容:
 
@@ -203,20 +221,20 @@ public void batchConvertCoordinates(List<CoordinateConverter.Point> wgs84Points)
 <dependency>
     <groupId>io.github.jukejuke</groupId>
     <artifactId>jk-tool</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.4</version>
 </dependency>
 ```
 
 ### Gradle
 ```
-implementation 'io.github.jukejuke:jk-tool:0.0.2'
+implementation 'io.github.jukejuke:jk-tool:0.0.4'
 ```
 
 ### 下载jar
 
 点击以下链接，下载`jk-tool-X.X.X.jar`即可：
 
-- [Maven中央库](https://repo1.maven.org/maven2/io/github/jukejuke/jk-tool/0.0.2/)
+- [Maven中央库](https://repo1.maven.org/maven2/io/github/jukejuke/jk-tool/0.0.4/)
 
 ## JDK 版本
 

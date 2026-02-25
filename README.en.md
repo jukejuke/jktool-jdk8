@@ -44,8 +44,17 @@ JK Tool is a Java-based utility library primarily designed to convert between ad
 - **Hosts File Management**: Implemented via the `HostsFileManager` class, supporting Hosts file reading, editing, and backup functions.
 - **DNS Resolution Tools**: Implemented via the `DnsResolver`, `ProxyDnsResolver`, `DoHQuery`, and `DoHWithHttpProxy` classes, supporting DNS query and DNS over HTTPS functions.
 - **IP Address Processing**: Implemented via the `IPAddressResolver` and `ProxyIPAddressResolver` classes, supporting IP address resolution and proxy IP identification.
-- **Process Management**: Implemented via the `WindowExeProcessManager` class, supporting process startup, query, and management under Windows systems.
+- **Process Management**: Implemented via the `ProcessManager`, `ProcessManagerFactory`, `WindowExeProcessManager` and `LinuxExeProcessManager` classes, supporting cross-platform process startup, query, and management functions.
 - **Logging Tools**: Implemented via the `LogUtil` class, providing concise logging functionality.
+
+### Email Tools
+- **Email Sending**: Implemented via the `MailUtils` class, supporting email sending functionality.
+- **Email Reading**: Implemented via the `MailReaderUtils` class, supporting email reading functionality.
+- **Email Deletion**: Implemented via the `MailDeleterUtils` class, supporting email deletion functionality.
+
+### Qiniu Cloud Tools
+- **Qiniu Cloud Configuration**: Implemented via the `QiniuConfig` class, supporting Qiniu Cloud configuration management.
+- **Qiniu Cloud Utilities**: Implemented via the `QiniuUtils` class, supporting Qiniu Cloud storage operations.
 
 ### License Management
 - **Hardware Information Acquisition**: Implemented via the `HardwareUtils` class, supporting acquisition of computer hardware identification information.
@@ -191,6 +200,15 @@ You can easily obtain structured address or area information from the returned `
 - `src/main/java/io/github/jukejuke/tool/freemarker/FreemarkerUtils.java`: Freemarker template engine utility class.
 - `src/main/java/io/github/jukejuke/tool/jwt/JwtUtils.java`: JWT token processing utility class.
 
+### Email Tools
+- `src/main/java/io/github/jukejuke/tool/mail/MailUtils.java`: Email sending utility class.
+- `src/main/java/io/github/jukejuke/tool/mail/MailReaderUtils.java`: Email reading utility class.
+- `src/main/java/io/github/jukejuke/tool/mail/MailDeleterUtils.java`: Email deletion utility class.
+
+### Qiniu Cloud Tools
+- `src/main/java/io/github/jukejuke/qiniu/QiniuConfig.java`: Qiniu Cloud configuration management class.
+- `src/main/java/io/github/jukejuke/qiniu/QiniuUtils.java`: Qiniu Cloud storage operation utility class.
+
 ### Maven
 Add the following to your project's pom.xml dependencies:
 
@@ -198,20 +216,20 @@ Add the following to your project's pom.xml dependencies:
 <dependency>
     <groupId>io.github.jukejuke</groupId>
     <artifactId>jk-tool</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.4</version>
 </dependency>
 ```
 
 ### Gradle
 ```
-implementation 'io.github.jukejuke:jk-tool:0.0.2'
+implementation 'io.github.jukejuke:jk-tool:0.0.4'
 ```
 
 ### Download JAR
 
 Click the link below to download `jk-tool-X.X.X.jar`:
 
-- [Maven Central Repository](https://repo1.maven.org/maven2/io/github/jukejuke/jk-tool/0.0.2/)
+- [Maven Central Repository](https://repo1.maven.org/maven2/io/github/jukejuke/jk-tool/0.0.4/)
 
 ## JDK Version
 
