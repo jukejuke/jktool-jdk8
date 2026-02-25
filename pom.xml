@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.jukejuke</groupId>
-  <artifactId>jk-tool</artifactId>
+  <artifactId>jk-tool-jdk8</artifactId>
   <packaging>jar</packaging>
   <version>0.0.4</version>
 
