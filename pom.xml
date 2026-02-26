@@ -32,6 +32,31 @@
     <developerConnection>scm:git:https://github.com/jukejuke/jk-tool.git</developerConnection>
     <url>https://github.com/jukejuke/jk-tool</url>
   </scm>
+
+    <properties>
+        <freemarker.version>2.3.34</freemarker.version>
+        <!--<freemarker.version>2.3.32</freemarker.version>-->
+        <nimbus-jose-jwt.version>10.6</nimbus-jose-jwt.version>
+        <!-- <nimbus-jose-jwt.version>9.37</nimbus-jose-jwt.version>-->
+        <fastjson2.version>2.0.61</fastjson2.version>
+        <okhttp.version>4.12.0</okhttp.version>
+        <lombok.version>1.18.42</lombok.version>
+        <!--<lombok.version>1.18.24</lombok.version>-->
+        <dnsjava.version>3.6.3</dnsjava.version>
+        <javax.mail.version>1.6.2</javax.mail.version>
+        <slf4j.version>1.7.36</slf4j.version>
+        <qiniu.version>7.15.0</qiniu.version>
+        <junit.version>5.9.2</junit.version>
+        <mockito.version>4.11.0</mockito.version>
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
+        <maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
   <build>
     <plugins>
       <!--   central发布插件    -->
@@ -178,113 +203,114 @@
     </plugins>
   </build>
 
-  <properties>
-    <freemarker.version>2.3.34</freemarker.version>
-    <!--<freemarker.version>2.3.32</freemarker.version>-->
-    <nimbus-jose-jwt.version>10.6</nimbus-jose-jwt.version>
-   <!-- <nimbus-jose-jwt.version>9.37</nimbus-jose-jwt.version>-->
-    <fastjson2.version>2.0.60</fastjson2.version>
-    <okhttp.version>4.12.0</okhttp.version>
-    <lombok.version>1.18.42</lombok.version>
-    <!--<lombok.version>1.18.24</lombok.version>-->
-    <dnsjava.version>3.6.3</dnsjava.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okhttp.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>dnsjava</groupId>
+            <artifactId>dnsjava</artifactId>
+            <version>${dnsjava.version}</version>
+        </dependency>
+        <!--    <dependency>
+              <groupId>com.alibaba</groupId>
+              <artifactId>fastjson</artifactId>
+              <version>2.0.32</version>
+            </dependency>-->
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>${fastjson2.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>mockwebserver</artifactId>
+            <version>${okhttp.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Freemarker 依赖 -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>${nimbus-jose-jwt.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- JavaMail 依赖 -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>${javax.mail.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>${javax.mail.version}</version>
+            <scope>compile</scope>
+        </dependency>
 
-  <dependencies>
-    <dependency>
-      <groupId>com.squareup.okhttp3</groupId>
-      <artifactId>okhttp</artifactId>
-      <version>${okhttp.version}</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>dnsjava</groupId>
-      <artifactId>dnsjava</artifactId>
-      <version>${dnsjava.version}</version>
-    </dependency>
-<!--    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>fastjson</artifactId>
-      <version>2.0.32</version>
-    </dependency>-->
-    <dependency>
-      <groupId>com.alibaba.fastjson2</groupId>
-      <artifactId>fastjson2</artifactId>
-      <version>${fastjson2.version}</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>${lombok.version}</version>
-        <scope>provided</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.9.2</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.9.2</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.mockito</groupId>
-        <artifactId>mockito-core</artifactId>
-        <version>4.11.0</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>com.squareup.okhttp3</groupId>
-        <artifactId>mockwebserver</artifactId>
-        <version>${okhttp.version}</version>
-        <scope>test</scope>
-    </dependency>
-    <!-- Freemarker 依赖 -->
-    <dependency>
-        <groupId>org.freemarker</groupId>
-        <artifactId>freemarker</artifactId>
-        <version>${freemarker.version}</version>
-        <scope>compile</scope>
-    </dependency>
-    <dependency>
-        <groupId>com.nimbusds</groupId>
-        <artifactId>nimbus-jose-jwt</artifactId>
-        <version>${nimbus-jose-jwt.version}</version>
-        <scope>compile</scope>
-    </dependency>
-    <!-- JavaMail 依赖 -->
-    <dependency>
-        <groupId>javax.mail</groupId>
-        <artifactId>javax.mail-api</artifactId>
-        <version>1.6.2</version>
-        <scope>compile</scope>
-    </dependency>
-    <dependency>
-        <groupId>com.sun.mail</groupId>
-        <artifactId>javax.mail</artifactId>
-        <version>1.6.2</version>
-        <scope>compile</scope>
-    </dependency>
-    <!-- SLF4J 日志实现依赖 -->
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>1.7.36</version>
-        <scope>compile</scope>
-    </dependency>
-    <!-- 七牛云SDK依赖 -->
-    <dependency>
-        <groupId>com.qiniu</groupId>
-        <artifactId>qiniu-java-sdk</artifactId>
-        <version>7.15.0</version>
-        <scope>compile</scope>
-    </dependency>
-  </dependencies>
+        <!--
+            slf4j-api 提供了对主流日志框架的适配（通过 "绑定包"），比如：
+            slf4j-log4j12：绑定 Log4j 1.x；
+            slf4j-reload4j：绑定 Reload4j（Log4j 1.x 的替代）；
+            logback-classic：Logback 原生支持 slf4j，无需额外绑定包；
+            slf4j-jdk14：绑定 JDK 自带的 java.util.logging；
+            slf4j-nop：空实现，不输出任何日志；
+            slf4j-simple：简单实现，仅输出到控制台。
+        -->
+        <!--
+            SLF4J 日志实现依赖 （简单实现，仅输出到控制台）
+        -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- 七牛云SDK依赖 -->
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>${qiniu.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+
 <!--  <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
