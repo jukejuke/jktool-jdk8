@@ -215,21 +215,21 @@ Add the following to your project's pom.xml dependencies:
 ```xml
 <dependency>
     <groupId>io.github.jukejuke</groupId>
-    <artifactId>jk-tool</artifactId>
+    <artifactId>jk-tool-jdk8</artifactId>
     <version>0.0.4</version>
 </dependency>
 ```
 
 ### Gradle
 ```
-implementation 'io.github.jukejuke:jk-tool:0.0.4'
+implementation 'io.github.jukejuke:jk-tool-jdk8:0.0.4'
 ```
 
 ### Download JAR
 
-Click the link below to download `jk-tool-X.X.X.jar`:
+Click the link below to download `jk-tool-jdk8-X.X.X.jar`:
 
-- [Maven Central Repository](https://repo1.maven.org/maven2/io/github/jukejuke/jk-tool/0.0.4/)
+- [Maven Central Repository](https://repo1.maven.org/maven2/io/github/jukejuke/jk-tool-jdk8/0.0.4/) 
 
 ## JDK Version
 

@@ -220,21 +220,21 @@ public void batchConvertCoordinates(List<CoordinateConverter.Point> wgs84Points)
 ```xml
 <dependency>
     <groupId>io.github.jukejuke</groupId>
-    <artifactId>jk-tool</artifactId>
+    <artifactId>jk-tool-jdk8</artifactId>
     <version>0.0.4</version>
 </dependency>
 ```
 
 ### Gradle
 ```
-implementation 'io.github.jukejuke:jk-tool:0.0.4'
+implementation 'io.github.jukejuke:jk-tool-jdk8:0.0.4'
 ```
 
 ### 下载jar
 
-点击以下链接，下载`jk-tool-X.X.X.jar`即可：
+点击以下链接，下载`jk-tool-jdk8-X.X.X.jar`即可：
 
-- [Maven中央库](https://repo1.maven.org/maven2/io/github/jukejuke/jk-tool/0.0.4/)
+- [Maven中央库](https://repo1.maven.org/maven2/io/github/jukejuke/jk-tool-jdk8/0.0.4/)
 
 ## JDK 版本
 
