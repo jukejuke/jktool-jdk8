@@ -238,7 +238,7 @@ implementation 'io.github.jukejuke:jk-tool-jdk8:0.0.4'
 
 ## JDK 版本
 
-- **JDK 11 或更高版本**
+- **JDK 8 或更高版本**
 
 ## 许可证
 

@@ -233,7 +233,7 @@ Click the link below to download `jk-tool-jdk8-X.X.X.jar`:
 
 ## JDK Version
 
-- **JDK 11 or higher**
+- **JDK 8 or higher**
 
 ## License
 
