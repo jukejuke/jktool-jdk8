@@ -1,0 +1,47 @@
+# IDE配置文件
+.idea/
+.vscode/
+
+# 编译输出目录
+target/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志文件
+logs/
+*.log
+
+# 临时文件
+*.tmp
+*.bak
+
+# Maven相关
+*.jar
+*.war
+*.ear
+*.class
+
+# IDEA特定文件
+*.iws
+*.ipr
+
+# Eclipse特定文件
+.classpath
+.project
+.settings/
+
+# VS Code特定文件
+*.code-workspace
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+
+# 其他不需要版本控制的文件
+*.swp
+*~
+/target/classes/
+/target/maven-archiver/
+/target/maven-status/
+*.class
