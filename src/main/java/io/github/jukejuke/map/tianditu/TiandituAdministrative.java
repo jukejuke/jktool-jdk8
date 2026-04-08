@@ -9,6 +9,8 @@ import lombok.Data;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 天地图行政区划服务工具类
@@ -106,8 +108,105 @@ public class TiandituAdministrative {
             private String pgb;
             private String name;
             private String boundary;
+            private List<Coordinate> boundaryList;
             private Center center;
             private int level;
+
+            /**
+             * 获取解析后的边界坐标列表
+             * 取第一个多边形，每个坐标点为 Coordinate 对象
+             * @return 边界坐标列表
+             */
+            public List<Coordinate> getBoundaryList() {
+                if (boundaryList != null) {
+                    return boundaryList;
+                }
+                boundaryList = new ArrayList<>();
+                if (boundary == null || boundary.isEmpty()) {
+                    return boundaryList;
+                }
+
+                try {
+                    // 解析 MULTIPOLYGON 格式
+                    String wkt = boundary.trim();
+                    if (wkt.startsWith("MULTIPOLYGON")) {
+                        // 移除 MULTIPOLYGON 关键字
+                        String content = wkt.substring("MULTIPOLYGON".length()).trim();
+
+                        // 找到第一个多边形的开始和结束位置
+                        int firstOpenParen = content.indexOf('(');
+                        int secondOpenParen = content.indexOf('(', firstOpenParen + 1);
+
+                        if (secondOpenParen != -1) {
+                            // 从第二个 '(' 开始找对应的 ')'
+                            int depth = 1;
+                            int closeParen = -1;
+                            for (int i = secondOpenParen + 1; i < content.length(); i++) {
+                                if (content.charAt(i) == '(') {
+                                    depth++;
+                                } else if (content.charAt(i) == ')') {
+                                    depth--;
+                                    if (depth == 0) {
+                                        closeParen = i;
+                                        break;
+                                    }
+                                }
+                            }
+
+                            if (closeParen != -1) {
+                                // 提取第一个多边形的坐标内容
+                                String polygonContent = content.substring(secondOpenParen + 1, closeParen).trim();
+
+                                // 移除可能的前导括号
+                                polygonContent = polygonContent.replaceAll("^\\s*\\(\\s*", "");
+
+                                // 分割坐标点
+                                String[] pointStrings = polygonContent.split(",");
+                                for (String pointStr : pointStrings) {
+                                    pointStr = pointStr.trim();
+                                    // 移除坐标点前后的括号
+                                    pointStr = pointStr.replaceAll("^\\s*\\(+\\s*", "").replaceAll("\\s*\\)+\\s*$", "");
+                                    if (pointStr.isEmpty()) {
+                                        continue;
+                                    }
+
+                                    String[] coords = pointStr.split("\\s+");
+                                    if (coords.length >= 2) {
+                                        try {
+                                            double lng = Double.parseDouble(coords[0].trim());
+                                            double lat = Double.parseDouble(coords[1].trim());
+                                            boundaryList.add(new Coordinate(lng, lat));
+                                        } catch (Exception e) {
+                                            // 忽略无法解析的点
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    // 解析失败时返回空列表
+                }
+
+                return boundaryList;
+            }
+        }
+
+        /**
+         * 经纬度坐标对象
+         */
+        @Data
+        public static class Coordinate {
+            private double lng;
+            private double lat;
+
+            public Coordinate() {
+            }
+
+            public Coordinate(double lng, double lat) {
+                this.lng = lng;
+                this.lat = lat;
+            }
         }
 
         @Data
